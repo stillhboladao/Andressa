@@ -55,6 +55,48 @@
     .extra-space {
       margin-bottom: 10vh;
     }
+    
+    .heart-animation {
+      animation: heartbeat 1s infinite;
+    }
+    
+    .centered {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .button:hover {
+      background-color: darkred;
+    }
+    
+    #loader {
+      width: 100%;
+      height: 5px;
+      background-color: red;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      animation: progress 2s ease forwards;
+    }
+    
+    @keyframes progress {
+      0% { width: 0; }
+      100% { width: 100%; }
+    }
   </style>
   <script>
     function onYouTubeIframeAPIReady() {
@@ -84,9 +126,14 @@
       playButton.addEventListener("click", function() {
         event.target.playVideo();
         playButton.style.display = "none";
-        var content = document.getElementById("content");
-        content.style.display = "block";
-        animateText();
+        var loader = document.getElementById("loader");
+        loader.style.display = "block";
+        setTimeout(function() {
+          loader.style.display = "none";
+          var content = document.getElementById("content");
+          content.style.display = "block";
+          animateText();
+        }, 2000);
       });
     }
     
@@ -106,7 +153,10 @@
 </head>
 <body>
   <div id="player"></div>
-  <button id="play-button" style="display: none;">Aperte aqui, Nenê!!!</button>
+  <div class="centered">
+    <button id="play-button" class="button">Aperte aqui, Nenê!!!</button>
+  </div>
+  <div id="loader"></div>
   <div id="content">
     <div>
       <span class="letter">E</span>
@@ -143,16 +193,18 @@
     </div>
     <div class="text">
       <p class="text">
-        <span class="heart">&#x1F493;</span> Então... Como vou te dizer e demonstrar o quanto eu te amo e o quanto te quero cada dia mais em minha vida? <span class="heart">&#x1F493;</span>
+        <span class="heart">&#x1F493;</span> Você é a mulher mais incrível que já conheci e não encontro palavras suficientes para descrever o quão imenso é o meu amor por você. Agradeço por tudo o que você faz por mim. <span class="heart">&#x1F493;</span>
       </p>
       <p class="text">
-        <span class="heart">&#x1F493;</span> É até engraçado, porque nos conhecemos há anos e ainda mantemos uma conexão extremamente forte. Na verdade, eu não consigo mais imaginar minha vida sem a sua companhia, carinho, amor e lealdade. Você é incrível. <span class="heart">&#x1F493;</span>
+        <span class="heart">&#x1F493;</span> Desejo fazer de você a mulher mais feliz do mundo inteiro. Quero que cada dia ao seu lado seja repleto de momentos inesquecíveis que alimentem nossa conexão verdadeira. <span class="heart">&#x1F493;</span>
       </p>
       <p class="text">
-        <span class="heart">&#x1F493;</span> Obrigado por tudo que você fez e continua fazendo por mim, e até mesmo por nós! <span class="heart">&#x1F493;</span>
+        <span class="heart">&#x1F493;</span> Quando penso em você, um sentimento que aquece meu coração e me faz acreditar no poder do amor. Ao seu lado, sinto carinho, confiança e uma conexão fortíssima e sei que, com você, poderei enfrentar qualquer obstáculo. Sou muito grato por ter você em minha vida. <span class="heart">&#x1F493;</span>
       </p>
     </div>
     <div class="extra-space"></div>
+	<div class="extra-space"></div>
+	<div class="extra-space"></div>
   </div>
 </body>
 </html>
