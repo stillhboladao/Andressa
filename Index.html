@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bah o pai te ama nenê</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+    }
+    
+    #content {
+      display: none;
+      text-align: center;
+      color: red;
+      font-size: 6vw;
+      margin-top: 10vh;
+    }
+    
+    .heart {
+      display: block;
+      margin: 2vw;
+      font-size: 4vw;
+      animation: heartbeat 1s infinite;
+      text-align: center;
+    }
+    
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    .letter {
+      display: block;
+      margin: 2vw;
+      font-size: 6vw;
+      text-align: center;
+    }
+    
+    .text {
+      font-size: 3vw;
+      margin: 5vw;
+      text-align: center;
+      animation: heartbeat 1s infinite;
+    }
+    
+    .extra-space {
+      margin-bottom: 10vh;
+    }
+  </style>
+  <script>
+    function onYouTubeIframeAPIReady() {
+      var player = new YT.Player('player', {
+        height: '0',
+        width: '0',
+        videoId: 'cc12scxKG_Q',
+        playerVars: {
+          autoplay: 0,
+          controls: 1,
+          disablekb: 1,
+          enablejsapi: 1,
+          iv_load_policy: 3,
+          modestbranding: 1,
+          rel: 0,
+          showinfo: 0
+        },
+        events: {
+          'onReady': onPlayerReady
+        }
+      });
+    }
+    
+    function onPlayerReady(event) {
+      var playButton = document.getElementById("play-button");
+      playButton.style.display = "block";
+      playButton.addEventListener("click", function() {
+        event.target.playVideo();
+        playButton.style.display = "none";
+        var content = document.getElementById("content");
+        content.style.display = "block";
+        animateText();
+      });
+    }
+    
+    function animateText() {
+      var hearts = document.getElementsByClassName("heart");
+      for (var i = 0; i < hearts.length; i++) {
+        hearts[i].style.animation = "heartbeat 1s infinite";
+      }
+      
+      var letters = document.getElementsByClassName("letter");
+      for (var j = 0; j < letters.length; j++) {
+        letters[j].style.animation = "heartbeat 1s infinite";
+      }
+    }
+  </script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+  <div id="player"></div>
+  <button id="play-button" style="display: none;">Aperte aqui, Nenê!!!</button>
+  <div id="content">
+    <div>
+      <span class="letter">E</span>
+      <span class="letter">U</span>
+      <span class="heart">&#x1F499;</span>
+      <span class="heart">&#x1F49A;</span>
+    </div>
+    <div>
+      <span class="letter">T</span>
+      <span class="letter">E</span>
+      <span class="letter">A</span>
+      <span class="letter">M</span>
+      <span class="letter">O</span>
+      <span class="heart">&#x1F493;</span>
+      <span class="heart">&#x1F494;</span>
+      <span class="heart">&#x1F495;</span>
+      <span class="heart">&#x1F496;</span>
+      <span class="heart">&#x1F497;</span>
+    </div>
+    <div>
+      <span class="letter">A</span>
+      <span class="letter">N</span>
+      <span class="letter">D</span>
+      <span class="letter">R</span>
+      <span class="letter">E</span>
+      <span class="letter">S</span>
+      <span class="letter">S</span>
+      <span class="letter">A</span>
+      <span class="heart">&#x1F49B;</span>
+      <span class="heart">&#x1F49C;</span>
+      <span class="heart">&#x1F49D;</span>
+      <span class="heart">&#x1F49E;</span>
+      <span class="heart">&#x1F49F;</span>
+    </div>
+    <div class="text">
+      <p class="text">
+        <span class="heart">&#x1F493;</span> Então... Como vou te dizer e demonstrar o quanto eu te amo e o quanto te quero cada dia mais em minha vida? <span class="heart">&#x1F493;</span>
+      </p>
+      <p class="text">
+        <span class="heart">&#x1F493;</span> É até engraçado, porque nos conhecemos há anos e ainda mantemos uma conexão extremamente forte. Na verdade, eu não consigo mais imaginar minha vida sem a sua companhia, carinho, amor e lealdade. Você é incrível. <span class="heart">&#x1F493;</span>
+      </p>
+      <p class="text">
+        <span class="heart">&#x1F493;</span> Obrigado por tudo que você fez e continua fazendo por mim, e até mesmo por nós! <span class="heart">&#x1F493;</span>
+      </p>
+    </div>
+    <div class="extra-space"></div>
+  </div>
+</body>
+</html>
